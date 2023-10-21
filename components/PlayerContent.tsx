@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
-import useSound from 'use-sound';
+//import useSound from 'use-sound';
+const { useSound } = require('use-sound');
 
 import { Song } from "@/types"
 import MediaItem from "./MediaItem"
