@@ -15,7 +15,7 @@ import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"
 import Slider from "./Slider"
 import usePlayer from "@/hooks/usePlayer"
 
-
+import dayjs from 'dayjs'
 
 interface PlayerContentProps {
     song: Song
@@ -64,9 +64,11 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         player.setId(previousSong)
     }
 
+
     const [play, { pause, sound }] = useSound(
         songUrl,
         {
+            // playbackRate,
             volume: volume,
             onplay: () => setIsPlaying(true),
             onend: () => {
@@ -77,6 +79,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             format: ['mp3']
         }
     )
+    //console.log(sound);
+
 
     useEffect(() => {
         sound?.play()
@@ -84,6 +88,15 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             sound?.unload()
         }
     }, [sound])
+
+
+
+    const durationSong = sound?.duration()
+    const durationM = dayjs.unix(durationSong).minute()
+    const durationS = dayjs.unix(durationSong).second()
+
+    const durationMinSec = durationM + ':' + durationS
+
 
     const handlePlay = () => {
         if (!isPlaying) {
@@ -101,6 +114,8 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         }
     }
 
+
+
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
             <div className="flex w-full justify-start">
@@ -109,6 +124,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                         data={song}
                     />
                     <LikeButton
+                        className=''
                         songId={song.id}
                     />
                 </div>
@@ -116,6 +132,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             <div className="flex md:hidden col-auto w-full justify-end items-center">
                 <div
                     onClick={handlePlay}
+
                     className="h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer"
                 >
                     <Icon size={30} className="text-black" />
@@ -139,6 +156,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 />
             </div>
             <div className="hidden md:flex w-full justify-end pr-2">
+                <p className='place-self-center pr-4'>{durationMinSec}</p>
                 <div className="flex items-center gap-x-2 w-[120px]">
                     <VolumeIcon
                         onClick={toogleMute}

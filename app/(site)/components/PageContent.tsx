@@ -1,8 +1,12 @@
 'use client'
 
 import SongItem from "@/components/SongItem"
+import useGetSongById from "@/hooks/useGetSongById"
+import useLoadSongUrl from "@/hooks/useLoadSongUrl"
 import useOnPlay from "@/hooks/useOnPlay"
 import { Song } from "@/types"
+
+const { Howl, Howler } = require('howler');
 
 interface PageContentProps {
     songs: Song[]
@@ -12,6 +16,27 @@ const PageContent: React.FC<PageContentProps> = ({
     songs,
 }) => {
     const onPlay = useOnPlay(songs)
+
+    const urlSong = (id: string) => {
+        const { song } = useGetSongById(id)
+        const songUrl = useLoadSongUrl(song!)
+
+        var sound2 = new Howl({
+            src: songUrl,
+            preload: true
+        });
+        console.log(sound2);
+
+
+
+
+        // const srcSong = sound2._src
+
+        //console.log(sound2._src);
+
+        return songUrl
+
+    }
 
     if (songs.length === 0) {
         return (

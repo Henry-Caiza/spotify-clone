@@ -4,6 +4,8 @@ import useDebounce from "@/hooks/useDebounce"
 import { useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
 
+import { FiSearch } from 'react-icons/fi'
+
 import qs from "query-string"
 import Input from "./Input"
 
@@ -32,7 +34,10 @@ const SearchInput = () => {
             placeholder="What do you to listen to?"
             value={value}
             onChange={e => setValue(e.target.value)}
-        />
+            className="rounded-full bg-neutral-800 focus:border-white"
+        >
+
+        </Input>
     )
 }
 

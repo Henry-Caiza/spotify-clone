@@ -24,6 +24,9 @@ const Search = async ({ searchParams }: SearchProps) => {
                     <SearchInput />
                 </div>
             </Header>
+            {/* <h1 className="text-white text-2xl font-semibold mb-4 px-6">
+                Browse all
+            </h1> */}
             <SearchContent songs={songs} />
         </div>
     )

@@ -1,7 +1,11 @@
+
+
 import getLikedSongs from "@/actions/getLikedSongs"
 import Header from "@/components/Header"
 import Image from "next/image"
 import LikedContent from "./components/LikedContent"
+
+//import { useUser } from "@/hooks/useUser"
 
 export const revalidate = 0
 
@@ -9,12 +13,15 @@ const Liked = async () => {
 
     const songs = await getLikedSongs()
 
+    // const { user, subscription } = await useUser()
+    // console.log(user);
+
     return (
         <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
-            <Header>
-                <div className=" mt-20">
+            <Header className="from-[#523CA0]">
+                <div className=" mt-10">
                     <div className="flex flex-col md:flex-row items-center gap-x-5">
-                        <div className="relative h-32 w-32 lg:h-44 lg:w-44">
+                        <div className="relative h-32 w-32 lg:h-56 lg:w-56 shadow-[0_35px_160px_-15px_rgba(0,0,0,0.8)]">
                             <Image
                                 fill
                                 src='/images/liked.png'
@@ -29,11 +36,12 @@ const Liked = async () => {
                             <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold">
                                 Liked Songs
                             </h1>
+
                         </div>
                     </div>
                 </div>
             </Header>
-            <LikedContent songs={songs} />
+            <LikedContent songs_Liked={songs} />
         </div>
     )
 }

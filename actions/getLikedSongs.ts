@@ -1,3 +1,4 @@
+
 import { Song } from "@/types";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs"
 import { cookies } from "next/headers";
@@ -26,10 +27,13 @@ const getLikedSongs = async (): Promise<Song[]> => {
     if (!data) {
         return [];
     }
+    //console.log(data[0].created_at);
 
-    return data.map((item) => ({
-        ...item.songs
-    }))
+    return data
+    // return data.map((item) => (item.created_at,
+    // {
+    //     ...item.songs
+    // }))
 }
 
 export default getLikedSongs
