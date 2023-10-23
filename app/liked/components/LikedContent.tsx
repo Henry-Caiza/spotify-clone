@@ -47,15 +47,15 @@ const LikedContent: React.FC<LikedContentProps> = ({
         )
     }
 
-    // function timeLiked(song_created_at: any) {
-    //     dayjs.extend(relativeTime)
+    function timeLiked(song_created_at: any) {
+        dayjs.extend(relativeTime)
 
-    //     const date1 = dayjs(song_created_at)
-    //     //@ts-ignore
-    //     const dateFromNow = date1.fromNow()
+        const date1 = dayjs(song_created_at)
+        //@ts-ignore
+        const dateFromNow = date1.fromNow()
 
-    //     return dateFromNow
-    // }
+        return dateFromNow
+    }
 
     return (
         <div className="flex flex-col gap-y-2 p-6">
@@ -92,7 +92,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                     </div>
                     <p className="col-start-10 col-end-11 text-neutral-400 text-sm"> {
                         //@ts-ignore
-                        // timeLiked(song.created_at)
+                        timeLiked(song.created_at)
                     }</p>
                     <LikeButton
                         className="col-start-12 col-end-12 place-self-center "
