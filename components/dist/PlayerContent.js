@@ -52,7 +52,7 @@ var PlayerContent = function (_a) {
         onpause: function () { return setIsPlaying(false); },
         format: ['mp3']
     }), play = _d[0], _e = _d[1], pause = _e.pause, sound = _e.sound;
-    console.log(sound);
+    //console.log(sound);
     react_1.useEffect(function () {
         // sound?.play()
         return function () {
@@ -84,12 +84,9 @@ var PlayerContent = function (_a) {
             React.createElement("div", { className: "flex items-center gap-x-4" },
                 React.createElement(MediaItem_1["default"], { data: song }),
                 React.createElement(LikeButton_1["default"], { className: 'z-50', songId: song.id }))),
-        React.createElement("div", { className: "flex md:hidden col-auto w-full justify-end items-center " },
-            React.createElement("div", { onClick: handlePlay, className: "h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer" },
-                React.createElement(Icon, { size: 30, className: "text-black" }))),
-        React.createElement("div", { className: "hidden h-full md:flex justify-center items-center w-full col-span-2 relative" },
-            React.createElement(ai_1.AiFillStepBackward, { onClick: onPlayPrevious, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[40px] z-10" }),
+        React.createElement("div", { className: "flex h-full md:flex justify-center items-center w-full col-span-1 md:col-span-2 relative" },
+            React.createElement(ai_1.AiFillStepBackward, { onClick: onPlayPrevious, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[55px]  sm:left-[40px] z-10" }),
             React.createElement("audio", { controls: true, autoPlay: true, src: songUrl, onEnded: onPlayNext, className: 'w-full' }),
-            React.createElement(ai_1.AiFillStepForward, { onClick: onPlayNext, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[125px]" }))));
+            React.createElement(ai_1.AiFillStepForward, { onClick: onPlayNext, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[112px] sm:left-[125px]" }))));
 };
 exports["default"] = PlayerContent;

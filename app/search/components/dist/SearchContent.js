@@ -19,7 +19,7 @@ var SearchContent = function (_a) {
             React.createElement("p", { className: "col-start-2 col-end-8 lg:col-start-2 lg:col-end-9 pl-11" }, "Title"),
             React.createElement(ci_1.CiClock2, { className: "col-start-12 col-end-12 place-self-setar", size: 20 })),
         songs.map(function (song, i) { return (React.createElement("div", { key: song.id, className: "grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group w-11/12 self-center" },
-            React.createElement("div", { className: "absolute left-8" },
+            React.createElement("div", { className: "absolute left-2 sm:left-4 lg:left-6 xl:left-8" },
                 React.createElement(bs_1.BsFillPlayFill, { className: "transition opacity-0 items-center translate translate-y-1/4 group-hover:opacity-100 group-hover:translate-y-0", size: 20 })),
             React.createElement("p", { className: "transition opacity-100 translate translate-y-1/4 group-hover:opacity-0 group-hover:translate-y-0 col-start-1 col-end-1 place-self-center text-neutral-400" }, i + 1),
             React.createElement("div", { className: "flex flex-1 items-center col-start-2 col-end-8 lg:col-start-2 lg:col-end-11" },

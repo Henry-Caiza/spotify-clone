@@ -79,7 +79,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             format: ['mp3']
         }
     )
-    console.log(sound);
+    //console.log(sound);
 
 
     useEffect(() => {
@@ -128,7 +128,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                     />
                 </div>
             </div>
-            <div className="flex md:hidden col-auto w-full justify-end items-center ">
+            {/* <div className="flex md:hidden col-auto w-full justify-end items-center ">
                 <div
                     onClick={handlePlay}
 
@@ -136,12 +136,12 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 >
                     <Icon size={30} className="text-black" />
                 </div>
-            </div>
-            <div className="hidden h-full md:flex justify-center items-center w-full col-span-2 relative">
+            </div> */}
+            <div className="flex h-full md:flex justify-center items-center w-full col-span-1 md:col-span-2 relative">
                 <AiFillStepBackward
                     onClick={onPlayPrevious}
                     size={25}
-                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[40px] z-10"
+                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[55px]  sm:left-[40px] z-10"
                 />
                 {/* <div
                     onClick={handlePlay}
@@ -159,7 +159,7 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                 <AiFillStepForward
                     onClick={onPlayNext}
                     size={25}
-                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[125px]"
+                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[112px] sm:left-[125px]"
                 />
             </div>
 

@@ -51,9 +51,9 @@ var useAuthModal_1 = require("@/hooks/useAuthModal");
 var usePlayer_1 = require("@/hooks/usePlayer");
 var link_1 = require("next/link");
 var Header = function (_a) {
+    // console.log(className);
     var _b;
     var children = _a.children, className = _a.className;
-    console.log(className);
     var player = usePlayer_1["default"]();
     var authModal = useAuthModal_1["default"]();
     var router = navigation_1.useRouter();

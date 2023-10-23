@@ -82,7 +82,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                     }
                     className="grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group"
                 >
-                    <div className="absolute left-8">
+                    <div className="absolute left-2 sm:left-4 lg:left-6 xl:left-8">
                         <BsFillPlayFill className="transition opacity-0 items-center translate translate-y-1/4 group-hover:opacity-100 group-hover:translate-y-0" size={20} />
                     </div>
                     <p className="transition opacity-100 translate translate-y-1/4 group-hover:opacity-0 group-hover:translate-y-0 col-start-1 col-end-1 place-self-center text-neutral-400">{i + 1}</p>

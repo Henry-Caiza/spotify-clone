@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({
     children,
     className
 }) => {
-    console.log(className);
+    // console.log(className);
 
 
     const player = usePlayer()

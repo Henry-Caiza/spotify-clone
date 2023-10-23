@@ -15,7 +15,7 @@ const ProgressSong: React.FC<ProgressSongProps> = ({
 }) => {
     const [progress, setProgress] = useState(0);
     const b = durationMili?.toString()
-    console.log(b);
+    // console.log(b);
     useEffect(() => {
         const timer = setTimeout(() => setProgress(100), 500);
 
