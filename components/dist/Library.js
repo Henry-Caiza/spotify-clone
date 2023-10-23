@@ -15,7 +15,7 @@ var Library = function (_a) {
     var authModal = useAuthModal_1["default"]();
     var uploadModal = useUploadModal_1["default"]();
     var _b = useUser_1.useUser(), user = _b.user, subscription = _b.subscription;
-    console.log(user);
+    //console.log(user);
     var onplay = useOnPlay_1["default"](songs);
     var onClick = function () {
         if (!user) {

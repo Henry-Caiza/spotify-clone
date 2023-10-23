@@ -7,6 +7,7 @@ var useOnPlay_1 = require("@/hooks/useOnPlay");
 var useUser_1 = require("@/hooks/useUser");
 var navigation_1 = require("next/navigation");
 var ci_1 = require("react-icons/ci");
+var bs_1 = require("react-icons/bs");
 var react_1 = require("react");
 var dayjs_1 = require("dayjs");
 var relativeTime = require('dayjs/plugin/relativeTime');
@@ -41,8 +42,10 @@ var LikedContent = function (_a) {
             // onClick={urlSong(i + 1)}
             key: 
             //@ts-ignore
-            song.songs.id, className: "grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center" },
-            React.createElement("p", { className: "col-start-1 col-end-1 place-self-center text-neutral-400" }, i + 1),
+            song.songs.id, className: "grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group" },
+            React.createElement("div", { className: "absolute left-8" },
+                React.createElement(bs_1.BsFillPlayFill, { className: "transition opacity-0 items-center translate translate-y-1/4 group-hover:opacity-100 group-hover:translate-y-0", size: 20 })),
+            React.createElement("p", { className: "transition opacity-100 translate translate-y-1/4 group-hover:opacity-0 group-hover:translate-y-0 col-start-1 col-end-1 place-self-center text-neutral-400" }, i + 1),
             React.createElement("div", { className: "flex flex-1 items-center col-start-2 col-end-8 lg:col-start-2 lg:col-end-9" },
                 React.createElement(MediaItem_1["default"], { className: "hover:bg-neutral-800/0", onClick: function (id) { return onplay(id); }, 
                     //@ts-ignore

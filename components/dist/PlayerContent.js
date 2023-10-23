@@ -2,14 +2,12 @@
 "use strict";
 exports.__esModule = true;
 var react_1 = require("react");
-//import useSound from 'use-sound';
 var useSound = require('use-sound').useSound;
 var MediaItem_1 = require("./MediaItem");
 var LikeButton_1 = require("./LikeButton");
 var bs_1 = require("react-icons/bs");
 var ai_1 = require("react-icons/ai");
 var hi2_1 = require("react-icons/hi2");
-var Slider_1 = require("./Slider");
 var usePlayer_1 = require("@/hooks/usePlayer");
 var dayjs_1 = require("dayjs");
 var PlayerContent = function (_a) {
@@ -44,6 +42,8 @@ var PlayerContent = function (_a) {
     var _d = useSound(songUrl, {
         // playbackRate,
         volume: volume,
+        //  volume: 0,
+        // autoplay: true,
         onplay: function () { return setIsPlaying(true); },
         onend: function () {
             setIsPlaying(false);
@@ -52,9 +52,9 @@ var PlayerContent = function (_a) {
         onpause: function () { return setIsPlaying(false); },
         format: ['mp3']
     }), play = _d[0], _e = _d[1], pause = _e.pause, sound = _e.sound;
-    //console.log(sound);
+    console.log(sound);
     react_1.useEffect(function () {
-        sound === null || sound === void 0 ? void 0 : sound.play();
+        // sound?.play()
         return function () {
             sound === null || sound === void 0 ? void 0 : sound.unload();
         };
@@ -80,22 +80,16 @@ var PlayerContent = function (_a) {
         }
     };
     return (React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-3 h-full" },
-        React.createElement("div", { className: "flex w-full justify-start" },
+        React.createElement("div", { className: "flex w-full justify-start col-start-1 col-end-1" },
             React.createElement("div", { className: "flex items-center gap-x-4" },
                 React.createElement(MediaItem_1["default"], { data: song }),
-                React.createElement(LikeButton_1["default"], { className: '', songId: song.id }))),
-        React.createElement("div", { className: "flex md:hidden col-auto w-full justify-end items-center" },
+                React.createElement(LikeButton_1["default"], { className: 'z-50', songId: song.id }))),
+        React.createElement("div", { className: "flex md:hidden col-auto w-full justify-end items-center " },
             React.createElement("div", { onClick: handlePlay, className: "h-10 w-10 flex items-center justify-center rounded-full bg-white p-1 cursor-pointer" },
                 React.createElement(Icon, { size: 30, className: "text-black" }))),
-        React.createElement("div", { className: "hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6" },
-            React.createElement(ai_1.AiFillStepBackward, { onClick: onPlayPrevious, size: 30, className: "text-neutral-400 cursor-pointer hover:text-white transition " }),
-            React.createElement("div", { onClick: handlePlay, className: "flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer" },
-                React.createElement(Icon, { size: 30, className: "text-black" })),
-            React.createElement(ai_1.AiFillStepForward, { onClick: onPlayNext, size: 30, className: "text-neutral-400 cursor-pointer hover:text-white transition" })),
-        React.createElement("div", { className: "hidden md:flex w-full justify-end pr-2" },
-            React.createElement("p", { className: 'place-self-center pr-4' }, durationMinSec),
-            React.createElement("div", { className: "flex items-center gap-x-2 w-[120px]" },
-                React.createElement(VolumeIcon, { onClick: toogleMute, className: "cursor-pointer", size: 34 }),
-                React.createElement(Slider_1["default"], { value: volume, onChange: function (value) { return setVolume(value); } })))));
+        React.createElement("div", { className: "hidden h-full md:flex justify-center items-center w-full col-span-2 relative" },
+            React.createElement(ai_1.AiFillStepBackward, { onClick: onPlayPrevious, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[40px] z-10" }),
+            React.createElement("audio", { controls: true, autoPlay: true, src: songUrl, onEnded: onPlayNext, className: 'w-full' }),
+            React.createElement(ai_1.AiFillStepForward, { onClick: onPlayNext, size: 25, className: "text-neutral-400 cursor-pointer hover:text-white transition absolute left-[125px]" }))));
 };
 exports["default"] = PlayerContent;

@@ -8,6 +8,7 @@ import { Song } from "@/types"
 import { useRouter } from "next/navigation"
 
 import { CiClock2 } from "react-icons/ci"
+import { BsFillPlayFill } from 'react-icons/bs'
 
 import { useEffect } from 'react'
 
@@ -60,7 +61,9 @@ const LikedContent: React.FC<LikedContentProps> = ({
     return (
         <div className="flex flex-col gap-y-2 sm:p-6 text-xs sm:text-base">
             <div className="grid grid-cols-12  border border-t-0  border-x-0 border-neutral-700 py-1 sm:p-2 text-neutral-400 items-center text-xs sm:text-base">
-                <p className="col-start-1 col-end-1 place-self-center ">#</p>
+                <p className="col-start-1 col-end-1 place-self-center ">#
+
+                </p>
                 <p className="col-start-2 col-end-8 lg:col-start-2 lg:col-end-9">Title</p>
                 <p className="col-start-9 col-end-12 lg:col-start-10 lg:col-end-11">Date added</p>
                 <CiClock2
@@ -77,9 +80,12 @@ const LikedContent: React.FC<LikedContentProps> = ({
                         //@ts-ignore
                         song.songs.id
                     }
-                    className="grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center"
+                    className="grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group"
                 >
-                    <p className="col-start-1 col-end-1 place-self-center text-neutral-400">{i + 1}</p>
+                    <div className="absolute left-8">
+                        <BsFillPlayFill className="transition opacity-0 items-center translate translate-y-1/4 group-hover:opacity-100 group-hover:translate-y-0" size={20} />
+                    </div>
+                    <p className="transition opacity-100 translate translate-y-1/4 group-hover:opacity-0 group-hover:translate-y-0 col-start-1 col-end-1 place-self-center text-neutral-400">{i + 1}</p>
 
                     <div className="flex flex-1 items-center col-start-2 col-end-8 lg:col-start-2 lg:col-end-9">
 

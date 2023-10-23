@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 
-//import useSound from 'use-sound';
 const { useSound } = require('use-sound');
 
 import { Song } from "@/types"
@@ -12,7 +11,7 @@ import LikeButton from "./LikeButton"
 import { BsPauseFill, BsPlayFill } from 'react-icons/bs'
 import { AiFillStepBackward, AiFillStepForward } from "react-icons/ai"
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2"
-import Slider from "./Slider"
+
 import usePlayer from "@/hooks/usePlayer"
 
 import dayjs from 'dayjs'
@@ -64,12 +63,13 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
         player.setId(previousSong)
     }
 
-
     const [play, { pause, sound }] = useSound(
         songUrl,
         {
             // playbackRate,
             volume: volume,
+            //  volume: 0,
+            // autoplay: true,
             onplay: () => setIsPlaying(true),
             onend: () => {
                 setIsPlaying(false)
@@ -79,19 +79,18 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
             format: ['mp3']
         }
     )
-    //console.log(sound);
+    console.log(sound);
 
 
     useEffect(() => {
-        sound?.play()
+        // sound?.play()
         return () => {
             sound?.unload()
         }
     }, [sound])
 
-
-
     const durationSong = sound?.duration()
+
     const durationM = dayjs.unix(durationSong).minute()
     const durationS = dayjs.unix(durationSong).second()
 
@@ -118,18 +117,18 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
 
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 h-full">
-            <div className="flex w-full justify-start">
+            <div className="flex w-full justify-start col-start-1 col-end-1">
                 <div className="flex items-center gap-x-4">
                     <MediaItem
                         data={song}
                     />
                     <LikeButton
-                        className=''
+                        className='z-50'
                         songId={song.id}
                     />
                 </div>
             </div>
-            <div className="flex md:hidden col-auto w-full justify-end items-center">
+            <div className="flex md:hidden col-auto w-full justify-end items-center ">
                 <div
                     onClick={handlePlay}
 
@@ -138,37 +137,32 @@ const PlayerContent: React.FC<PlayerContentProps> = ({
                     <Icon size={30} className="text-black" />
                 </div>
             </div>
-            <div className="hidden h-full md:flex justify-center items-center w-full max-w-[722px] gap-x-6">
+            <div className="hidden h-full md:flex justify-center items-center w-full col-span-2 relative">
                 <AiFillStepBackward
                     onClick={onPlayPrevious}
-                    size={30}
-                    className="text-neutral-400 cursor-pointer hover:text-white transition "
+                    size={25}
+                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[40px] z-10"
                 />
-                <div
+                {/* <div
                     onClick={handlePlay}
                     className="flex items-center justify-center h-10 w-10 rounded-full bg-white p-1 cursor-pointer">
                     <Icon size={30} className="text-black" />
-                </div>
+                </div> */}
+                <audio
+                    controls
+                    autoPlay
+                    src={songUrl}
+                    onEnded={onPlayNext}
+                    className='w-full'
+                >
+                </audio>
                 <AiFillStepForward
                     onClick={onPlayNext}
-                    size={30}
-                    className="text-neutral-400 cursor-pointer hover:text-white transition"
+                    size={25}
+                    className="text-neutral-400 cursor-pointer hover:text-white transition absolute left-[125px]"
                 />
             </div>
-            <div className="hidden md:flex w-full justify-end pr-2">
-                <p className='place-self-center pr-4'>{durationMinSec}</p>
-                <div className="flex items-center gap-x-2 w-[120px]">
-                    <VolumeIcon
-                        onClick={toogleMute}
-                        className="cursor-pointer"
-                        size={34}
-                    />
-                    <Slider
-                        value={volume}
-                        onChange={(value) => setVolume(value)}
-                    />
-                </div>
-            </div>
+
 
         </div>
     )
