@@ -11,14 +11,9 @@ import { CiClock2 } from "react-icons/ci"
 
 import { useEffect } from 'react'
 
-//import useLoadSongUrl from "@/hooks/useLoadSongUrl"
-
 import dayjs from 'dayjs'
-import useGetSongById from "@/hooks/useGetSongById"
 var relativeTime = require('dayjs/plugin/relativeTime')
 
-
-//const { Howl, Howler } = require('howler');
 
 
 interface LikedContentProps {
@@ -37,22 +32,6 @@ const LikedContent: React.FC<LikedContentProps> = ({
     const router = useRouter()
     const { isLoading, user } = useUser()
 
-
-    // const urlSong = (id: string) => {
-    //     const { song } = useGetSongById(id)
-    //     const songUrl = useLoadSongUrl(song!)
-
-    //     var sound2 = new Howl({
-    //         src: songUrl,
-    //         preload: true
-    //     });
-    //     // console.log(sound2);
-
-    //     return sound2
-
-    // }
-
-
     useEffect(() => {
         if (!isLoading && !user) {
             router.replace('/')
@@ -68,15 +47,15 @@ const LikedContent: React.FC<LikedContentProps> = ({
         )
     }
 
-    function timeLiked(song_created_at: any) {
-        dayjs.extend(relativeTime)
+    // function timeLiked(song_created_at: any) {
+    //     dayjs.extend(relativeTime)
 
-        const date1 = dayjs(song_created_at)
-        //@ts-ignore
-        const dateFromNow = date1.fromNow()
+    //     const date1 = dayjs(song_created_at)
+    //     //@ts-ignore
+    //     const dateFromNow = date1.fromNow()
 
-        return dateFromNow
-    }
+    //     return dateFromNow
+    // }
 
     return (
         <div className="flex flex-col gap-y-2 p-6">
@@ -113,7 +92,7 @@ const LikedContent: React.FC<LikedContentProps> = ({
                     </div>
                     <p className="col-start-10 col-end-11 text-neutral-400 text-sm"> {
                         //@ts-ignore
-                        timeLiked(song.created_at)
+                        // timeLiked(song.created_at)
                     }</p>
                     <LikeButton
                         className="col-start-12 col-end-12 place-self-center "
