@@ -27,7 +27,7 @@ var AuthModal = function () {
     return (React.createElement(Modal_1["default"], { title: "Welcome back", description: "Login to your account", isOpen: isOpen, onChange: onChange },
         React.createElement(auth_ui_react_1.Auth, { theme: "dark", 
             //magicLink
-            providers: ['google', 'facebook', 'github'], supabaseClient: supabaseClient, appearance: {
+            providers: ['google', 'facebook'], supabaseClient: supabaseClient, appearance: {
                 theme: auth_ui_shared_1.ThemeSupa,
                 variables: {
                     "default": {

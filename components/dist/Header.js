@@ -49,6 +49,7 @@ var auth_helpers_react_1 = require("@supabase/auth-helpers-react");
 var useUser_1 = require("@/hooks/useUser");
 var useAuthModal_1 = require("@/hooks/useAuthModal");
 var usePlayer_1 = require("@/hooks/usePlayer");
+var link_1 = require("next/link");
 var Header = function (_a) {
     var _b;
     var children = _a.children, className = _a.className;
@@ -85,10 +86,12 @@ var Header = function (_a) {
                 React.createElement("button", { onClick: function () { return router.forward(); }, className: " rounded-full bg-black flex items-center justify-center hover:opacity-75 transition" },
                     React.createElement(rx_1.RxCaretRight, { className: "text-white", size: 35 }))),
             React.createElement("div", { className: "flex md:hidden gap-x-2 items-center" },
-                React.createElement("button", { className: "rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" },
-                    React.createElement(hi_1.HiHome, { className: "text-black", size: 20 })),
-                React.createElement("button", { className: "rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" },
-                    React.createElement(bi_1.BiSearch, { className: "text-black", size: 20 }))),
+                React.createElement(link_1["default"], { href: '/' },
+                    React.createElement("button", { className: "rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" },
+                        React.createElement(hi_1.HiHome, { className: "text-black", size: 20 }))),
+                React.createElement(link_1["default"], { href: '/search' },
+                    React.createElement("button", { className: "rounded-full p-2 bg-white flex items-center justify-center hover:opacity-75 transition" },
+                        React.createElement(bi_1.BiSearch, { className: "text-black", size: 20 })))),
             React.createElement("div", { className: "flex justify-between items-center gap-x-4" }, user ? (React.createElement("div", { className: "flex gap-x-4 items-center" },
                 React.createElement(Button_1["default"], { onClick: handleLogout, className: "bg-white px-6 py-2" }, "Logout"),
                 React.createElement(Button_1["default"], { onClick: function () { return router.push('/account'); }, className: "bg-white flex items-center gap-2" },

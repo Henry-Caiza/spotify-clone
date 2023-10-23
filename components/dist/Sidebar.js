@@ -44,7 +44,7 @@ var Sidebar = function (_a) {
         pathname
     ]);
     return (React.createElement("div", { className: tailwind_merge_1.twMerge("flex h-full", player.activeId && "h-[calc(100%-80px)]") },
-        React.createElement("div", { className: "hidden md:flex flex-col gap-y-2 bg-black h-full w-[430px] p-2" },
+        React.createElement("div", { className: "hidden md:flex flex-col gap-y-2 bg-black h-full w-[300px] lg:w-[430px] p-2" },
             React.createElement(Box_1["default"], null,
                 React.createElement("div", { className: "flex flex-col gap-y-4 px-5 py-4" }, routes.map(function (item) { return (React.createElement(SidebarItem_1["default"], __assign({ key: item.label }, item))); }))),
             React.createElement(Box_1["default"], { className: "overflow-auto h-full" },
