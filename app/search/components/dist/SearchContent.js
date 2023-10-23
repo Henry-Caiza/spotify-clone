@@ -15,6 +15,6 @@ var SearchContent = function (_a) {
         songs.map(function (song) { return (React.createElement("div", { key: song.id, className: "flex items-center gap-x-4 w-full" },
             React.createElement("div", { className: "flex-1" },
                 React.createElement(MediaItem_1["default"], { onClick: function (id) { return onPlay(id); }, data: song })),
-            React.createElement(LikeButton_1["default"], { songId: song.id }))); })));
+            React.createElement(LikeButton_1["default"], { className: "", songId: song.id }))); })));
 };
 exports["default"] = SearchContent;

@@ -11,14 +11,14 @@ import { CiClock2 } from "react-icons/ci"
 
 import { useEffect } from 'react'
 
-import useLoadSongUrl from "@/hooks/useLoadSongUrl"
+//import useLoadSongUrl from "@/hooks/useLoadSongUrl"
 
 import dayjs from 'dayjs'
 import useGetSongById from "@/hooks/useGetSongById"
 var relativeTime = require('dayjs/plugin/relativeTime')
 
 
-const { Howl, Howler } = require('howler');
+//const { Howl, Howler } = require('howler');
 
 
 interface LikedContentProps {
@@ -38,19 +38,19 @@ const LikedContent: React.FC<LikedContentProps> = ({
     const { isLoading, user } = useUser()
 
 
-    const urlSong = (id: string) => {
-        const { song } = useGetSongById(id)
-        const songUrl = useLoadSongUrl(song!)
+    // const urlSong = (id: string) => {
+    //     const { song } = useGetSongById(id)
+    //     const songUrl = useLoadSongUrl(song!)
 
-        var sound2 = new Howl({
-            src: songUrl,
-            preload: true
-        });
-        // console.log(sound2);
+    //     var sound2 = new Howl({
+    //         src: songUrl,
+    //         preload: true
+    //     });
+    //     // console.log(sound2);
 
-        return sound2
+    //     return sound2
 
-    }
+    // }
 
 
     useEffect(() => {

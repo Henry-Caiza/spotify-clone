@@ -39,7 +39,7 @@ const SearchContent: React.FC<SearchContentProps> = ({
                             data={song}
                         />
                     </div>
-                    <LikeButton songId={song.id} />
+                    <LikeButton className="" songId={song.id} />
                 </div>
             ))}
         </div>

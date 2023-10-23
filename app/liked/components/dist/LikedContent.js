@@ -8,26 +8,24 @@ var useUser_1 = require("@/hooks/useUser");
 var navigation_1 = require("next/navigation");
 var ci_1 = require("react-icons/ci");
 var react_1 = require("react");
-var useLoadSongUrl_1 = require("@/hooks/useLoadSongUrl");
+//import useLoadSongUrl from "@/hooks/useLoadSongUrl"
 var dayjs_1 = require("dayjs");
-var useGetSongById_1 = require("@/hooks/useGetSongById");
 var relativeTime = require('dayjs/plugin/relativeTime');
-var _a = require('howler'), Howl = _a.Howl, Howler = _a.Howler;
 var LikedContent = function (_a) {
     var songs_Liked = _a.songs_Liked;
     var onplay = useOnPlay_1["default"](songs_Liked);
     var router = navigation_1.useRouter();
     var _b = useUser_1.useUser(), isLoading = _b.isLoading, user = _b.user;
-    var urlSong = function (id) {
-        var song = useGetSongById_1["default"](id).song;
-        var songUrl = useLoadSongUrl_1["default"](song);
-        var sound2 = new Howl({
-            src: songUrl,
-            preload: true
-        });
-        // console.log(sound2);
-        return sound2;
-    };
+    // const urlSong = (id: string) => {
+    //     const { song } = useGetSongById(id)
+    //     const songUrl = useLoadSongUrl(song!)
+    //     var sound2 = new Howl({
+    //         src: songUrl,
+    //         preload: true
+    //     });
+    //     // console.log(sound2);
+    //     return sound2
+    // }
     react_1.useEffect(function () {
         if (!isLoading && !user) {
             router.replace('/');
