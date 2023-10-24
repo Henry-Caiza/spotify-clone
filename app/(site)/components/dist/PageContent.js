@@ -9,6 +9,6 @@ var PageContent = function (_a) {
     if (songs.length === 0) {
         return (React.createElement("div", { className: "mt-4 text-neutral-400" }, "No songs available."));
     }
-    return (React.createElement("div", { className: "grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 mt-4" }, songs.map(function (item) { return (React.createElement(SongItem_1["default"], { key: item.id, onClick: function (id) { return onPlay(id); }, data: item })); })));
+    return (React.createElement("div", { className: "grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 mt-4" }, songs.map(function (item) { return (React.createElement(SongItem_1["default"], { key: item.id, onClick: function (id) { return onPlay(id); }, data: item })); })));
 };
 exports["default"] = PageContent;
