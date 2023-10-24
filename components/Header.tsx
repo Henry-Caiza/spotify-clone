@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({
                             >
 
                                 {dataUser.userDetails?.avatar_url ? (
-                                    <img src={dataUser.userDetails?.avatar_url} alt="avatar" className="w-10 h-10" />
+                                    <img src={dataUser.userDetails?.avatar_url} alt="avatar" className="w-10 h-10 rounded-full" />
                                 ) : (
                                     <div className="flex gap-2 items-center">
                                         <FaUserAlt />
