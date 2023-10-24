@@ -103,9 +103,8 @@ const Header: React.FC<HeaderProps> = ({
                                 {dataUser.userDetails?.avatar_url ? (
                                     <img src={dataUser.userDetails?.avatar_url} alt="avatar" className="w-10 h-10 rounded-full" />
                                 ) : (
-                                    <div className="flex gap-2 items-center">
-                                        <FaUserAlt />
-                                        <p className="text-xs">{user.email?.slice(0, 3)}</p>
+                                    <div className="bg-[#613eedc4] w-10 h-10 justify-center rounded-full flex items-center">
+                                        <p className="text-xl text-white">{user.email?.slice(0, 1)}</p>
                                     </div>
                                 )}
 
