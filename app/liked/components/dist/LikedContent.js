@@ -12,10 +12,11 @@ var react_1 = require("react");
 var dayjs_1 = require("dayjs");
 var relativeTime = require('dayjs/plugin/relativeTime');
 var LikedContent = function (_a) {
+    //console.log(songs_Liked);
     var songs_Liked = _a.songs_Liked;
-    var onplay = useOnPlay_1["default"](songs_Liked);
     var router = navigation_1.useRouter();
     var _b = useUser_1.useUser(), isLoading = _b.isLoading, user = _b.user;
+    var onplay = useOnPlay_1["default"](songs_Liked);
     react_1.useEffect(function () {
         if (!isLoading && !user) {
             router.replace('/');
@@ -42,20 +43,20 @@ var LikedContent = function (_a) {
             // onClick={urlSong(i + 1)}
             key: 
             //@ts-ignore
-            song.songs.id, className: "grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group" },
+            song.id, className: "grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group" },
             React.createElement("div", { className: "absolute left-2 sm:left-4 lg:left-6 xl:left-8" },
                 React.createElement(bs_1.BsFillPlayFill, { className: "transition opacity-0 items-center translate translate-y-1/4 group-hover:opacity-100 group-hover:translate-y-0", size: 20 })),
             React.createElement("p", { className: "transition opacity-100 translate translate-y-1/4 group-hover:opacity-0 group-hover:translate-y-0 col-start-1 col-end-1 place-self-center text-neutral-400" }, i + 1),
             React.createElement("div", { className: "flex flex-1 items-center col-start-2 col-end-8 lg:col-start-2 lg:col-end-9" },
                 React.createElement(MediaItem_1["default"], { className: "hover:bg-neutral-800/0", onClick: function (id) { return onplay(id); }, 
                     //@ts-ignore
-                    data: song.songs })),
+                    data: song })),
             React.createElement("p", { className: "col-start-9 col-end-12 lg:col-start-10 lg:col-end-11  text-neutral-400 text-xs sm:text-sm" },
                 " ",
                 //@ts-ignore
-                timeLiked(song.created_at)),
+                timeLiked(song.created)),
             React.createElement(LikeButton_1["default"], { className: "col-start-12 col-end-12 place-self-center", songId: 
                 //@ts-ignore
-                song.songs.id }))); })));
+                song.id }))); })));
 };
 exports["default"] = LikedContent;

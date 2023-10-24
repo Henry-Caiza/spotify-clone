@@ -6,6 +6,7 @@ var usePlayer_1 = require("@/hooks/usePlayer");
 var image_1 = require("next/image");
 var tailwind_merge_1 = require("tailwind-merge");
 var MediaItem = function (_a) {
+    //console.log(data.id);
     var data = _a.data, onClick = _a.onClick, className = _a.className;
     var player = usePlayer_1["default"]();
     var imageUrl = useLoadImage_1["default"](data);

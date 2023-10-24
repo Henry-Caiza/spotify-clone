@@ -32,8 +32,8 @@ const AuthModal = () => {
 
     return (
         <Modal
-            title="Welcome back"
-            description="Login to your account"
+            title="Welcome"
+            description="Start listening with a Stupify account for free"
             isOpen={isOpen}
             onChange={onChange}
         >
@@ -45,13 +45,29 @@ const AuthModal = () => {
                 appearance={{
                     theme: ThemeSupa,
                     variables: {
+
                         default: {
                             colors: {
-                                brand: '#404040',
-                                brandAccent: '#22c55e'
+                                brand: '#22c55e',
+                                brandAccent: '#1fdf64',
+                                defaultButtonText: 'black'
                             }
-                        }
-                    }
+                        },
+                        dark: {
+                            colors: {
+                                brandButtonText: 'white',
+                                defaultButtonBackground: '#282828',
+                                defaultButtonBackgroundHover: '#3e3e3e',
+                            }
+                        },
+
+                    },
+                    style: {
+                        button: { borderRadius: '9999px' },
+                        anchor: {},
+                        label: { color: 'white' }
+                        //..
+                    },
                 }}
             />
 

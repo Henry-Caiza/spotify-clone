@@ -28,12 +28,12 @@ const getLikedSongs = async (): Promise<Song[]> => {
         return [];
     }
     //console.log(data[0].created_at);
-
-    return data
-    // return data.map((item) => (item.created_at,
-    // {
-    //     ...item.songs
-    // }))
+    //return data
+    return data.map((item) => (
+        {
+            created: item.created_at,
+            ...item.songs
+        }))
 }
 
 export default getLikedSongs

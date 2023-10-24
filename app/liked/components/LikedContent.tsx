@@ -26,12 +26,11 @@ const LikedContent: React.FC<LikedContentProps> = ({
     songs_Liked,
 }) => {
 
-
-
-    const onplay = useOnPlay(songs_Liked)
+    //console.log(songs_Liked);
 
     const router = useRouter()
     const { isLoading, user } = useUser()
+    const onplay = useOnPlay(songs_Liked)
 
     useEffect(() => {
         if (!isLoading && !user) {
@@ -72,13 +71,13 @@ const LikedContent: React.FC<LikedContentProps> = ({
             </div>
 
 
-            {songs_Liked.map((song, i) => (
+            {songs_Liked.map((song: any, i: number) => (
                 <div
                     //@ts-ignore
                     // onClick={urlSong(i + 1)}
                     key={
                         //@ts-ignore
-                        song.songs.id
+                        song.id
                     }
                     className="grid grid-cols-12  hover:bg-neutral-800/50  rounded-md items-center relative group"
                 >
@@ -91,23 +90,21 @@ const LikedContent: React.FC<LikedContentProps> = ({
 
                         <MediaItem
                             className="hover:bg-neutral-800/0"
-                            onClick={(id: string) => onplay(id)}
+                            onClick={(id) => onplay(id)}
                             //@ts-ignore
-                            data={song.songs}
+                            data={song}
                         />
                     </div>
                     <p className="col-start-9 col-end-12 lg:col-start-10 lg:col-end-11  text-neutral-400 text-xs sm:text-sm"> {
                         //@ts-ignore
-                        timeLiked(song.created_at)
+                        timeLiked(song.created)
                     }</p>
                     <LikeButton
                         className="col-start-12 col-end-12 place-self-center"
                         songId={
                             //@ts-ignore
-                            song.songs.id
+                            song.id
                         } />
-
-
                 </div>
             ))}
         </div>

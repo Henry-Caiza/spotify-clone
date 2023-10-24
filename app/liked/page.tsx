@@ -5,19 +5,14 @@ import Header from "@/components/Header"
 import Image from "next/image"
 import LikedContent from "./components/LikedContent"
 
-//import { useUser } from "@/hooks/useUser"
-
 export const revalidate = 0
 
 const Liked = async () => {
 
     const songs = await getLikedSongs()
 
-    // const { user, subscription } = await useUser()
-    // console.log(user);
-
     return (
-        <div className="bg-neutral-900 rounded-lg h-full w-full overflow-hidden overflow-y-auto">
+        <div className="bg-[#121212] rounded-lg h-full w-full overflow-hidden overflow-y-auto">
             <Header className="from-[#523CA0]">
                 <div className=" mt-10">
                     <div className="flex flex-col md:flex-row items-center gap-x-5">
@@ -33,7 +28,7 @@ const Liked = async () => {
                             <p className="hidden md:block font-semibold text-sm">
                                 Playlist
                             </p>
-                            <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold">
+                            <h1 className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold z-40">
                                 Liked Songs
                             </h1>
 

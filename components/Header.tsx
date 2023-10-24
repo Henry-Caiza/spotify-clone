@@ -39,6 +39,9 @@ const Header: React.FC<HeaderProps> = ({
 
     const supabaseClient = useSupabaseClient()
     const { user } = useUser()
+    const dataUser = useUser()
+    //console.log(dataUser);
+
 
 
     const handleLogout = async () => {
@@ -94,10 +97,18 @@ const Header: React.FC<HeaderProps> = ({
                             </Button>
                             <Button
                                 onClick={() => router.push('/account')}
-                                className="bg-white flex items-center gap-2"
+                                className={`bg-white ${dataUser.userDetails?.avatar_url ? 'p-0' : 'p-3'}`}
                             >
-                                <FaUserAlt />
-                                <p className="text-xs">{user.email?.slice(0, 3)}</p>
+
+                                {dataUser.userDetails?.avatar_url ? (
+                                    <img src={dataUser.userDetails?.avatar_url} alt="avatar" className="w-10 h-10" />
+                                ) : (
+                                    <div className="flex gap-2 items-center">
+                                        <FaUserAlt />
+                                        <p className="text-xs">{user.email?.slice(0, 3)}</p>
+                                    </div>
+                                )}
+
                             </Button>
 
                         </div>

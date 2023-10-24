@@ -52,13 +52,15 @@ var usePlayer_1 = require("@/hooks/usePlayer");
 var link_1 = require("next/link");
 var Header = function (_a) {
     // console.log(className);
-    var _b;
+    var _b, _c, _d, _e;
     var children = _a.children, className = _a.className;
     var player = usePlayer_1["default"]();
     var authModal = useAuthModal_1["default"]();
     var router = navigation_1.useRouter();
     var supabaseClient = auth_helpers_react_1.useSupabaseClient();
     var user = useUser_1.useUser().user;
+    var dataUser = useUser_1.useUser();
+    //console.log(dataUser);
     var handleLogout = function () { return __awaiter(void 0, void 0, void 0, function () {
         var error;
         return __generator(this, function (_a) {
@@ -94,9 +96,9 @@ var Header = function (_a) {
                         React.createElement(bi_1.BiSearch, { className: "text-black", size: 20 })))),
             React.createElement("div", { className: "flex justify-between items-center gap-x-4" }, user ? (React.createElement("div", { className: "flex gap-x-4 items-center" },
                 React.createElement(Button_1["default"], { onClick: handleLogout, className: "bg-white px-6 py-2" }, "Logout"),
-                React.createElement(Button_1["default"], { onClick: function () { return router.push('/account'); }, className: "bg-white flex items-center gap-2" },
+                React.createElement(Button_1["default"], { onClick: function () { return router.push('/account'); }, className: "bg-white " + (((_b = dataUser.userDetails) === null || _b === void 0 ? void 0 : _b.avatar_url) ? 'p-0' : 'p-3') }, ((_c = dataUser.userDetails) === null || _c === void 0 ? void 0 : _c.avatar_url) ? (React.createElement("img", { src: (_d = dataUser.userDetails) === null || _d === void 0 ? void 0 : _d.avatar_url, alt: "avatar", className: "w-10 h-10" })) : (React.createElement("div", { className: "flex gap-2 items-center" },
                     React.createElement(fa_1.FaUserAlt, null),
-                    React.createElement("p", { className: "text-xs" }, (_b = user.email) === null || _b === void 0 ? void 0 : _b.slice(0, 3))))) : (React.createElement(React.Fragment, null,
+                    React.createElement("p", { className: "text-xs" }, (_e = user.email) === null || _e === void 0 ? void 0 : _e.slice(0, 3))))))) : (React.createElement(React.Fragment, null,
                 React.createElement("div", null,
                     React.createElement(Button_1["default"], { onClick: authModal.onOpen, className: "bg-transparent text-neutral-300 font-medium" }, "Sign up")),
                 React.createElement("div", null,
