@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({
                             </Button>
                             <Button
                                 onClick={() => router.push('/account')}
-                                className={`bg-white ${dataUser.userDetails?.avatar_url ? 'p-0' : 'p-3'}`}
+                                className={`bg-white ${dataUser.userDetails?.avatar_url ? 'p-0' : 'p-0'}`}
                             >
 
                                 {dataUser.userDetails?.avatar_url ? (
