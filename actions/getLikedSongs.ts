@@ -27,8 +27,7 @@ const getLikedSongs = async (): Promise<Song[]> => {
     if (!data) {
         return [];
     }
-    //console.log(data[0].created_at);
-    //return data
+
     return data.map((item) => (
         {
             created: item.created_at,
